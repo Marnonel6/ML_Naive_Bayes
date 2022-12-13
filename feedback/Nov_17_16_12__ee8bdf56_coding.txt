@@ -1,0 +1,81 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.15, pytest-7.2.0, pluggy-1.0.0
+rootdir: /workspace
+collected 13 items
+tests/test_a_environment.py .                                            [  7%]
+tests/test_a_setup.py .                                                  [ 15%]
+tests/test_naive_bayes.py FFFFFFF                                        [ 69%]
+tests/test_scipy.py ..                                                   [ 84%]
+tests/test_utils.py ..                                                   [100%]
+=================================== FAILURES ===================================
+_____________________________ test_tiny_dataset_a ______________________________
+>       help_test_tiny_dataset(NaiveBayes)
+tests/test_naive_bayes.py:11:
+>       assert np.allclose(softmax(nb.beta, axis=0), beta_target), msg
+E       AssertionError: [[0.2 0.2]
+E          [0.2 0.2]
+E          [0.2 0.2]
+E          [0.2 0.2]
+E          [0.2 0.2]] != [[0.25       0.        ]
+E          [0.5        0.33333333]
+E          [0.25       0.        ]
+E          [0.         0.33333333]
+E          [0.         0.33333333]]
+E       assert False
+E        +  where False = <function allclose at 0x7f63ef3b4e50>(array([[0.2, 0.2],\n       [0.2, 0.2],\n       [0.2, 0.2],\n       [0.2, 0.2],\n       [0.2, 0.2]]), array([[0.25      , 0.        ],\n       [0.5       , 0.33333333],\n       [0.25      , 0.        ],\n       [0.        , 0.33333333],\n       [0.        , 0.33333333]]))
+E        +    where <function allclose at 0x7f63ef3b4e50> = np.allclose
+E        +    and   array([[0.2, 0.2],\n       [0.2, 0.2],\n       [0.2, 0.2],\n       [0.2, 0.2],\n       [0.2, 0.2]]) = <function softmax at 0x7f63761e7ee0>(array([[0., 0.],\n       [0., 0.],\n       [0., 0.],\n       [0., 0.],\n       [0., 0.]]), axis=0)
+E        +      where array([[0., 0.],\n       [0., 0.],\n       [0., 0.],\n       [0., 0.],\n       [0., 0.]]) = <src.naive_bayes.NaiveBayes object at 0x7f6375f6cb80>.beta
+tests/test_naive_bayes.py:44: AssertionError
+_____________________________ test_tiny_dataset_b ______________________________
+>       help_test_tiny_dataset(NaiveBayesEM)
+tests/test_naive_bayes.py:16:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes_em.py:50: NotImplementedError
+________________________________ test_smoothing ________________________________
+>           assert nb.likelihood(X, test_y) == -np.inf
+tests/test_naive_bayes.py:81:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes.py:149: NotImplementedError
+_______________________________ test_without_em ________________________________
+>       nb_likelihood = nb.likelihood(train_data, train_labels)
+tests/test_naive_bayes.py:105:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes.py:149: NotImplementedError
+____________________________ test_em_initialization ____________________________
+>       nbem.initialize_params(train_data.shape[1], 2)
+tests/test_naive_bayes.py:126:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes_em.py:50: NotImplementedError
+_____________________ test_em_likelihood_always_increases ______________________
+>           nb.fit(train_data, train_labels)
+tests/test_naive_bayes.py:142:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes_em.py:50: NotImplementedError
+_________________________ test_comparison_naive_bayes __________________________
+>       nb1_likelihood = nb1.likelihood(train_data, train_labels)
+tests/test_naive_bayes.py:157:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes.py:149: NotImplementedError
+=============================== warnings summary ===============================
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+  /workspace/src/sparse_practice.py:34: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+    return np.matrix(X.toarray())
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_naive_bayes.py::test_tiny_dataset_a - AssertionError: [[0.2...
+FAILED tests/test_naive_bayes.py::test_tiny_dataset_b - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_smoothing - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_without_em - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_em_initialization - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_em_likelihood_always_increases - NotIm...
+FAILED tests/test_naive_bayes.py::test_comparison_naive_bayes - NotImplemente...
+=================== 7 failed, 6 passed, 3 warnings in 1.71s ====================

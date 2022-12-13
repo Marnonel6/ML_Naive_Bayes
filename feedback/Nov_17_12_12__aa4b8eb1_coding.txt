@@ -1,0 +1,76 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.15, pytest-7.2.0, pluggy-1.0.0
+rootdir: /workspace
+collected 13 items
+tests/test_a_environment.py F                                            [  7%]
+tests/test_a_setup.py .                                                  [ 15%]
+tests/test_naive_bayes.py FFFFFFF                                        [ 69%]
+tests/test_scipy.py ..                                                   [ 84%]
+tests/test_utils.py ..                                                   [100%]
+=================================== FAILURES ===================================
+_________________________________ test_imports _________________________________
+>                               assert line.strip() in exceptions, msg
+E                               AssertionError: Don't use eval in line 100 of /workspace/src/naive_bayes.py
+E                               assert 'evaluate `X_{i, j} \\beta_{j, y_i} = 0` even though numpy will by' in ['Do not use these numpy or internal functions: getattr, globals, eval']
+E                                +  where 'evaluate `X_{i, j} \\beta_{j, y_i} = 0` even though numpy will by' = <built-in method strip of str object at 0x7f76c903dab0>()
+E                                +    where <built-in method strip of str object at 0x7f76c903dab0> = '            evaluate `X_{i, j} \\beta_{j, y_i} = 0` even though numpy will by\n'.strip
+tests/test_a_environment.py:66: AssertionError
+_____________________________ test_tiny_dataset_a ______________________________
+>       help_test_tiny_dataset(NaiveBayes)
+tests/test_naive_bayes.py:11:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes.py:89: NotImplementedError
+_____________________________ test_tiny_dataset_b ______________________________
+>       help_test_tiny_dataset(NaiveBayesEM)
+tests/test_naive_bayes.py:16:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes_em.py:50: NotImplementedError
+________________________________ test_smoothing ________________________________
+>       nb.fit(X, train_y)
+tests/test_naive_bayes.py:73:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes.py:89: NotImplementedError
+_______________________________ test_without_em ________________________________
+>       nb.fit(train_data, train_labels)
+tests/test_naive_bayes.py:104:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes.py:89: NotImplementedError
+____________________________ test_em_initialization ____________________________
+>       nbem.initialize_params(train_data.shape[1], 2)
+tests/test_naive_bayes.py:126:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes_em.py:50: NotImplementedError
+_____________________ test_em_likelihood_always_increases ______________________
+>           nb.fit(train_data, train_labels)
+tests/test_naive_bayes.py:142:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes_em.py:50: NotImplementedError
+_________________________ test_comparison_naive_bayes __________________________
+>       nb1.fit(train_data, train_labels)
+tests/test_naive_bayes.py:156:
+>       raise NotImplementedError
+E       NotImplementedError
+src/naive_bayes.py:89: NotImplementedError
+=============================== warnings summary ===============================
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+  /workspace/src/sparse_practice.py:34: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+    return np.matrix(X.toarray())
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_a_environment.py::test_imports - AssertionError: Don't use ...
+FAILED tests/test_naive_bayes.py::test_tiny_dataset_a - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_tiny_dataset_b - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_smoothing - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_without_em - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_em_initialization - NotImplementedError
+FAILED tests/test_naive_bayes.py::test_em_likelihood_always_increases - NotIm...
+FAILED tests/test_naive_bayes.py::test_comparison_naive_bayes - NotImplemente...
+=================== 8 failed, 5 passed, 3 warnings in 1.77s ====================

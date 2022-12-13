@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.15, pytest-7.2.0, pluggy-1.0.0
+rootdir: /workspace
+collected 13 items
+tests/test_a_environment.py .                                            [  7%]
+tests/test_a_setup.py .                                                  [ 15%]
+tests/test_naive_bayes.py .......                                        [ 69%]
+tests/test_scipy.py ..                                                   [ 84%]
+tests/test_utils.py ..                                                   [100%]
+=============================== warnings summary ===============================
+src/naive_bayes.py:132
+  /workspace/src/naive_bayes.py:132: DeprecationWarning: invalid escape sequence \s
+    """
+tests/test_naive_bayes.py::test_tiny_dataset_a
+tests/test_naive_bayes.py::test_smoothing
+  /workspace/src/naive_bayes.py:124: RuntimeWarning: divide by zero encountered in log
+    self.beta[jb,yb] = np.log(num/den)
+tests/test_naive_bayes.py::test_tiny_dataset_b
+  /workspace/src/naive_bayes_em.py:200: RuntimeWarning: divide by zero encountered in log
+    self.beta[jb,yb] = np.log(num/den)
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+tests/test_scipy.py::test_scipy_sparse_to_numpy
+  /workspace/src/sparse_practice.py:34: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+    return np.matrix(X.toarray())
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 13 passed, 7 warnings in 2.75s ========================
